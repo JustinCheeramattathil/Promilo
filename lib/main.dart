@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:promilo/application/home_card_provider.dart';
 import 'package:promilo/presentation/auth/login_screen.dart';
+import 'package:promilo/presentation/home/home_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,10 +13,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Promilo',
-      home: LoginScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => HomeProvider(),
+        ),
+      ],
+      child:  MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Promilo',
+        home: HomeScreen(),
+      ),
     );
   }
 }
