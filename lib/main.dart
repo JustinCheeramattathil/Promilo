@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:promilo/application/bottom_nav_provider.dart';
 import 'package:promilo/application/home_card_provider.dart';
-import 'package:promilo/presentation/auth/login_screen.dart';
+import 'package:promilo/presentation/home/details_screen.dart';
 import 'package:promilo/presentation/home/home_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -18,11 +19,14 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => HomeProvider(),
         ),
+        ChangeNotifierProvider(
+          create: (context) => BottomNavBarProvider(),
+        ),
       ],
-      child:  MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Promilo',
-        home: HomeScreen(),
+        home: DetailsScreen(),
       ),
     );
   }

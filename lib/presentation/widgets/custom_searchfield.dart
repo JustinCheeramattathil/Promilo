@@ -14,11 +14,11 @@ class CustomSearchField extends StatelessWidget {
           decoration: InputDecoration(
             suffixIcon: Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Image.asset('assets/images/micicon.png'),
+              child: Image.asset('assets/images/mic.png'),
             ),
             prefixIcon: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Image.asset('assets/images/search.png'),
+              child: Image.asset('assets/images/lens.png'),
             ),
             focusedBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(8)),

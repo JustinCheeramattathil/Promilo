@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class HomeCard extends StatelessWidget {
   final String imageUrl;
-  const HomeCard({super.key,required this.imageUrl});
+  const HomeCard({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -15,10 +15,8 @@ class HomeCard extends StatelessWidget {
             height: size.height * 0.26,
             width: size.width * 0.9,
             decoration: BoxDecoration(
-              image:  DecorationImage(
-                  image: NetworkImage(
-                      imageUrl),
-                  fit: BoxFit.cover),
+              image: DecorationImage(
+                  image: NetworkImage(imageUrl), fit: BoxFit.cover),
               borderRadius: BorderRadius.circular(10),
             ),
             child: Container(
@@ -26,8 +24,7 @@ class HomeCard extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.bottomCenter,
                   colors: [
-                    Colors.black.withOpacity(0.6),
-                    Colors.black.withOpacity(0.3),
+                    Colors.black.withOpacity(0.2),
                     Colors.black.withOpacity(0.1),
                   ],
                 ),
