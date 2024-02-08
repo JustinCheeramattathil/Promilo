@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:promilo/core/constants/constants.dart';
+import 'package:promilo/presentation/home/home_screen.dart';
 import 'package:promilo/presentation/utils/colors.dart';
 import 'package:promilo/presentation/widgets/custom_button.dart';
 import 'package:promilo/presentation/widgets/custom_textfield.dart';
@@ -103,7 +104,13 @@ class LoginScreen extends StatelessWidget {
               ),
               kheight20,
               CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const HomeScreen(),
+                    ),
+                  );
+                },
               ),
               kheight10,
               Padding(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:promilo/application/home_card_provider.dart';
 import 'package:promilo/core/constants/constants.dart';
+import 'package:promilo/presentation/home/details_screen.dart';
 import 'package:promilo/presentation/utils/colors.dart';
 import 'package:promilo/presentation/widgets/bottom_nav.dart';
 import 'package:promilo/presentation/widgets/custom_searchfield.dart';
@@ -54,9 +55,14 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           backgroundColor: kwhiteColor,
           automaticallyImplyLeading: false,
-          leading: const Icon(
-            Icons.arrow_back_ios,
-            size: 20,
+          leading: InkWell(
+            onTap: () {
+              Navigator.of(context).pop();
+            },
+            child: const Icon(
+              Icons.arrow_back_ios,
+              size: 20,
+            ),
           ),
           title: const Text(
             'Individual Meetup',
@@ -169,8 +175,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
-                      itemBuilder: (context, index) => NumberCard(
-                            number: number[index],
+                      itemBuilder: (context, index) => InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => const DetailsScreen(),
+                                ),
+                              );
+                            },
+                            child: NumberCard(
+                              number: number[index],
+                            ),
                           )),
                 ),
               )
