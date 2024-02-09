@@ -116,6 +116,8 @@ class LoginScreen extends StatelessWidget {
                               password: loginProvider.passwordController.text,
                             ),
                             context);
+                        loginProvider.usernameController.clear();
+                        loginProvider.passwordController.clear();
                       }
                     : null,
                 borderColor:

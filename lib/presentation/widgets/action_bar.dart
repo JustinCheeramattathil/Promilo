@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_share/flutter_share.dart';
 
 class ActionBar extends StatelessWidget {
   const ActionBar({super.key});
@@ -56,10 +57,18 @@ class ActionBar extends StatelessWidget {
             ),
             InkWell(
               onTap: () {
+                FlutterShare.share(
+                    title: 'Promilo',
+                    text: '',
+                    linkUrl: 'sdfjdsjfhdsfhsfjsfgsh');
               },
-              child: const Icon(
-                Icons.share,
-                size: 30,
+              child: SizedBox(
+                height: 25,
+                width: 25,
+                child: ColorFiltered(
+                    colorFilter: const ColorFilter.mode(
+                        Color.fromARGB(255, 0, 0, 0), BlendMode.srcIn),
+                    child: Image.asset('assets/images/shareicon.png')),
               ),
             )
           ],
