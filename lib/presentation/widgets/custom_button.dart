@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:promilo/presentation/utils/colors.dart';
 
 class CustomButton extends StatelessWidget {
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
+  final Color borderColor;
 
   const CustomButton({
     super.key,
     required this.onPressed,
+    required this.borderColor,
   });
 
   @override
@@ -20,7 +22,7 @@ class CustomButton extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            border: Border.all(color: lightBlue, width: 2),
+            border: Border.all(color: borderColor, width: 2),
             color: const Color.fromARGB(255, 192, 222, 247),
           ),
           child: const Center(

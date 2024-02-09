@@ -12,6 +12,7 @@ class CustomSearchField extends StatelessWidget {
         height: 46,
         child: TextField(
           decoration: InputDecoration(
+            hintText: 'Search',
             suffixIcon: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Image.asset('assets/images/mic.png'),

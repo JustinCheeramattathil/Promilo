@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
           title: const Text(
             'Individual Meetup',
             style: TextStyle(
-                fontSize: 25, color: loginColor, fontWeight: FontWeight.w500),
+                fontSize: 23, color: loginColor, fontWeight: FontWeight.w500),
           ),
           shadowColor: Colors.black,
           elevation: 2,

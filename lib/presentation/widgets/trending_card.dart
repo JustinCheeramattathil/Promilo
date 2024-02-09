@@ -91,7 +91,7 @@ class TrendingCard extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    left: 80,
+                    left: 84,
                     top: 10,
                     child: CircleAvatar(
                       backgroundImage: NetworkImage(
@@ -100,7 +100,7 @@ class TrendingCard extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    left: 110,
+                    left: 118,
                     top: 10,
                     child: CircleAvatar(
                       backgroundImage: NetworkImage(
@@ -109,7 +109,7 @@ class TrendingCard extends StatelessWidget {
                     ),
                   ),
                   Positioned(
-                    left: 140,
+                    left: 150,
                     top: 10,
                     child: CircleAvatar(
                       backgroundImage: NetworkImage(

@@ -1,16 +1,18 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:promilo/application/login_provider.dart';
+import 'package:promilo/application/loginscreen_provider.dart';
 import 'package:promilo/core/constants/constants.dart';
-import 'package:promilo/presentation/home/home_screen.dart';
+import 'package:promilo/domain/models/api_model.dart';
 import 'package:promilo/presentation/utils/colors.dart';
 import 'package:promilo/presentation/widgets/custom_button.dart';
 import 'package:promilo/presentation/widgets/custom_textfield.dart';
+import 'package:provider/provider.dart';
 
 class LoginScreen extends StatelessWidget {
-  final usernameController = TextEditingController();
-  final passwordController = TextEditingController();
   LoginScreen({super.key});
+
   bool isChecked = false;
 
   void onChanged() {
@@ -19,6 +21,8 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final apiProvider = Provider.of<ApiProvider>(context);
+    final loginProvider = Provider.of<LoginScreenProvider>(context);
     return Scaffold(
       backgroundColor: kwhiteColor,
       appBar: AppBar(
@@ -43,7 +47,7 @@ class LoginScreen extends StatelessWidget {
               kheight40,
               CustomTextField(
                 text: 'Please Sign in to continue',
-                controller: usernameController,
+                controller: loginProvider.usernameController,
                 hintText: 'Enter Email or Mob No',
                 obscureText: false,
               ),
@@ -56,7 +60,7 @@ class LoginScreen extends StatelessWidget {
                     Text(
                       'Sign In With OTP',
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 17,
                           fontWeight: FontWeight.w500,
                           color: lightBlue),
                     ),
@@ -66,7 +70,7 @@ class LoginScreen extends StatelessWidget {
               kheight5,
               CustomTextField(
                 text: 'Password',
-                controller: passwordController,
+                controller: loginProvider.passwordController,
                 hintText: 'Enter Pasword',
                 obscureText: true,
               ),
@@ -95,7 +99,7 @@ class LoginScreen extends StatelessWidget {
                     const Text(
                       'Forget Password',
                       style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 17,
                           fontWeight: FontWeight.w500,
                           color: lightBlue),
                     ),
@@ -104,13 +108,20 @@ class LoginScreen extends StatelessWidget {
               ),
               kheight20,
               CustomButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const HomeScreen(),
-                    ),
-                  );
-                },
+                onPressed: loginProvider.isButtonEnabled
+                    ? () {
+                        apiProvider.postData(
+                            ApiModel(
+                              username: loginProvider.usernameController.text,
+                              password: loginProvider.passwordController.text,
+                            ),
+                            context);
+                      }
+                    : null,
+                borderColor:
+                    Provider.of<LoginScreenProvider>(context).isButtonEnabled
+                        ? lightBlue
+                        : kwhiteColor,
               ),
               kheight10,
               Padding(
@@ -238,18 +249,21 @@ class LoginScreen extends StatelessWidget {
               kheight20,
               const Text(
                 'By continuing,you agree to',
-                style: TextStyle(fontSize: 18, color: kgreyColor),
+                style: TextStyle(
+                    fontSize: 16, color: Color.fromARGB(255, 175, 197, 212)),
               ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "Promilo's",
-                    style: TextStyle(fontSize: 18, color: kgreyColor),
+                    style: TextStyle(
+                        fontSize: 16,
+                        color: Color.fromARGB(255, 175, 197, 212)),
                   ),
                   Text(
                     "Terms of Use&Privacy Policy",
-                    style: TextStyle(fontSize: 18, color: loginColor),
+                    style: TextStyle(fontSize: 16, color: loginColor),
                   ),
                 ],
               ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:promilo/application/loginscreen_provider.dart';
 import 'package:promilo/core/constants/constants.dart';
 import 'package:promilo/presentation/utils/colors.dart';
+import 'package:provider/provider.dart';
 
 class CustomTextField extends StatelessWidget {
   // ignore: prefer_typing_uninitialized_variables
@@ -38,9 +40,16 @@ class CustomTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
             child: TextField(
+              onChanged: (text) {
+
+                Provider.of<LoginScreenProvider>(context, listen: false)
+                    .updateButtonState();
+              },
               controller: controller,
+              
               obscureText: obscureText,
               decoration: InputDecoration(
+              
                 enabledBorder: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(12)),
                   borderSide: BorderSide(color: Colors.grey, width: 1.8),

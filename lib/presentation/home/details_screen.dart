@@ -19,11 +19,11 @@ class _DetailsScreenState extends State<DetailsScreen> {
   int _currentPageIndex = 0;
 
   List<String> image = [
-    'assets/images/surf.jpg',
-    'assets/images/surf2.jpg',
-    'assets/images/surf3.jpg',
-    'assets/images/surf4.jpg',
-    'assets/images/surf5.jpg',
+    'assets/images/beach1.jpg',
+    'assets/images/beach2.jpg',
+    'assets/images/beach3.jpg',
+    'assets/images/beach4.jpg',
+    'assets/images/beach5.jpg',
   ];
 
   @override
@@ -45,7 +45,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
         title: const Text(
           'Description',
           style: TextStyle(
-              fontSize: 25, color: loginColor, fontWeight: FontWeight.w500),
+              fontSize: 23, color: loginColor, fontWeight: FontWeight.w500),
         ),
         shadowColor: Colors.black,
         elevation: 2,
